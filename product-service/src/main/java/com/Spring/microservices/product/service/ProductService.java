@@ -10,6 +10,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.security.PublicKey;
+import java.util.List;
+
 @Slf4j
 @Data
 @RequiredArgsConstructor
@@ -24,10 +27,21 @@ public class ProductService {
                 .description(productRequest.getDescription())
                 .Price(productRequest.getPrice())
                 .build();
-
-        log.info("Product created successfully");
         productRepository.save(product);
-        return new ProductResponse(productRequest.getName(), product.getDescription(), product.getPrice());
+        log.info("Product created successfully");
+
+        return new ProductResponse(product.getId(), product.getName(), product.getDescription(), product.getPrice());
+
+    }
+
+
+    public List<ProductResponse> getAllProducts(){
+        return productRepository.findAll()
+                .stream()
+                .map(product -> new ProductResponse(product.getId(), product.getName(), product.getDescription(), product.getPrice()))
+                .toList();
+
+
 
     }
 
