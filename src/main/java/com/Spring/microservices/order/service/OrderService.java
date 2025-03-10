@@ -12,8 +12,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class OrderService {
 
-    private OrderRepository orderRepository;
-    private OrderRequest orderRequest;
+    private final OrderRepository orderRepository;
+
     public void placeOrder(OrderRequest orderRequest){
 
         Order order = new Order();
