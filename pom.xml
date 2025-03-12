@@ -70,10 +70,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-    <groupId>org.flywaydb</groupId>
-    <artifactId>flyway-core</artifactId>
-    <version>10.14.0</version>  <!-- Replace with the latest version -->
-        </dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>11.3.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-mysql</artifactId>

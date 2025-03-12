@@ -11,14 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class InventoryServiceApplicationTests {
 
     @ServiceConnection
-    static MySQLContainer<?> mySQLContainer = new MySQLContainer<>("mysql:8.3.0")
-            .withInitScript("com/Spring/microservices/inventory");
-
+    static MySQLContainer mySQLContainer = new MySQLContainer("mysql:8.3.0");
     @LocalServerPort
     private Integer port;
 
@@ -55,6 +52,7 @@ class InventoryServiceApplicationTests {
     }
 
 }
+
 
 
 
