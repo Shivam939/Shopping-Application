@@ -16,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureWireMock(port = 0)
+@AutoConfigureWireMock(port=0)
 class OrderServiceApplicationTests {
 
 	@ServiceConnection
