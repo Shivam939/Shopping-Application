@@ -1,4 +1,4 @@
-package com.Spring.microservies.notification;
+package com.Spring.microservices.notification;
 
 import org.springframework.boot.SpringApplication;
 
