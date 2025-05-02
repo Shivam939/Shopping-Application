@@ -1,21 +1,12 @@
 package com.Spring.microservices.order.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.math.BigDecimal;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-public class OrderRequest {
+public record OrderRequest (Long id, String orderNumber, String skuCode,
+                            BigDecimal price,Integer quantity,UserDetails userDetails){
 
-    private Long id;
-    private String orderNumber;
-    private String skuCode;
-    private BigDecimal price;
-    private Integer quantity;
+
+    public record UserDetails(String email,String firstName,String lastName){}
 }
+
+
