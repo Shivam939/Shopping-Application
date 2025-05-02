@@ -50,11 +50,11 @@ export class HomePageComponent implements OnInit {
   orderProduct(product: Product, quantity: string) {
 
     this.oidcSecurityService.userData$.subscribe(result => {
-      console.log(result);
+      console.log(result.userData);
       const userDetails = {
         email: result.userData.email,
-        firstName: result.userData.given_name,
-        lastName: result.userData.family_name
+        firstName: result.userData.given_name, // Change to given_name
+        lastName: result.userData.family_name  // Change to family_name
       };
 
       if(!quantity) {
@@ -64,14 +64,15 @@ export class HomePageComponent implements OnInit {
       } else {
         const order: Order = {
           skuCode: product.skuCode,
-          price: product.price.toString(),
+          price: product.price,
           quantity: Number(quantity),
+          userDetails: userDetails
         }
 
         this.orderService.orderProduct(order).subscribe(() => {
           this.orderSuccess = true;
         }, error => {
-          this.orderFailed = true;
+          this.orderFailed = false;
         })
       }
     })
